@@ -1,4 +1,6 @@
-class AddRealForeignKeys < ActiveRecord::Migration[7.0]
+# frozen_string_literal: true
+
+class AddRealForeignKeys < ActiveRecord::Migration[7.0] # rubocop:todo Style/Documentation
   def change
     add_reference :comments, :author, references: :users, index: true
     add_reference :likes, :author, references: :users, index: true

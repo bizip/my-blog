@@ -1,7 +1,9 @@
-class AddUserToPosts < ActiveRecord::Migration[7.0]
+# frozen_string_literal: true
+
+class AddUserToPosts < ActiveRecord::Migration[7.0] # rubocop:todo Style/Documentation
   def change
     add_column :posts, :author_id, :integer
     add_index :posts, :user_id
-    #Ex:- add_index("admin_users", "username")
+    # Ex:- add_index("admin_users", "username")
   end
 end
