@@ -7,6 +7,6 @@ class Post < ActiveRecord::Base
   end
 
   def five_recent_comment
-    posts.limit(5).order(comments :desc)
+    posts.limit(5).order(comments(:desc))
   end
 end
