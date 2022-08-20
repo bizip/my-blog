@@ -1,4 +1,4 @@
-class Post < ApplicationRecord
+class Post < ApplicationRecord # rubocop:todo Layout/EndOfLine
   validates :title, presence: true, length: { maximum: 250 }
 
   belongs_to :author, class_name: 'User', foreign_key: 'author_id', counter_cache: true

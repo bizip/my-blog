@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User < ApplicationRecord # rubocop:todo Layout/EndOfLine
   validates :name, presence: true
 
   has_many :posts, foreign_key: 'author_id'
