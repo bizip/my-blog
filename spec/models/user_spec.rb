@@ -9,9 +9,9 @@ RSpec.describe User, type: :model do
     expect(subject).to be_valid
   end
 
-  # it 'returns recent posts' do
-  #   Post.create(author: subject, title: 'test', text: 'test')
-  #   posts = subject.recent_posts
-  #   expect(posts.length).to eq 1
-  # end
+  it 'returns recent posts' do
+    Post.create(author: subject, title: 'test', text: 'test')
+    posts = subject.recent_three_posts
+    expect(posts.length).to eq 1
+  end
 end
