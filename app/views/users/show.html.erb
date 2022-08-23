@@ -1,0 +1,31 @@
+        <div>
+            <div><img src=<%= @user.photo %> alt="profile pic"></li>
+            </div>
+            <div>
+            <h2><%= @user.name%></h1>
+                <p>Number of posts: <%= @user.posts_count %></p>
+            </div>
+        </div>
+
+        <div>
+        <h2>Bio<h2>
+         <p> <%= @user.bio %></p>
+        </div>
+
+        <li>
+            <b>post #1</b>
+            <%= @user.recent_three_posts.each do |post|  %>
+                post
+            <% end %>
+                <div>
+                <p>  user.posts_count</p>
+                <p>Number of comments:</p>
+
+                </div>
+                <div>
+                <h2>user.name</h1>
+                    <p>Number of posts:  user.posts_count</p>
+            </div>
+        </li>
+
+        
