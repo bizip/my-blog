@@ -11,21 +11,17 @@
         <h2>Bio<h2>
          <p> <%= @user.bio %></p>
         </div>
-
-        <li>
-            <b>post #1</b>
-            <%= @user.recent_three_posts.each do |post|  %>
-                post
-            <% end %>
+           
+           <div> <%= @user.recent_three_posts.each do |post|  %>
+             <li>
+              <b>post #1</b>
                 <div>
-                <p>  user.posts_count</p>
-                <p>Number of comments:</p>
-
+                    <h2><%= post.title %></h2>
+                    <p>Post: <%= post.text %></p>
                 </div>
-                <div>
-                <h2>user.name</h1>
-                    <p>Number of posts:  user.posts_count</p>
-            </div>
-        </li>
+                </li>
+            <% end %>
+            </div> 
+               
 
         
