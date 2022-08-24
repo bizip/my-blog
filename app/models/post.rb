@@ -12,4 +12,3 @@ class Post < ApplicationRecord
     author.increment!(:posts_count)
   end
 end
-
