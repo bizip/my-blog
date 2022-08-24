@@ -12,18 +12,21 @@ RSpec.describe 'Users', type: :request do
     end
   end
   context 'For when GET /show' do
-    let!(:user) { User.create(name: 'Pascal',
-    photo: 'https://images.unsplash.com/photo-1660911295696-9810
-    c266d9f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
-    bio: 'Bacon ipsum dolor amet pork loin chislic porchetta, biltong bresaola jerky bacon tail swine pancetta
-    ham prosciutto beef. Frankfurter burgdoggen corned beef buffalo
-      landjaeger meatloaf
-       chuck kevin sausage shankle meatball. Tongue frankfurter capicola hamburger. Picanha') }
+    let!(:user) do
+      User.create(
+        name: 'Pascal',
+        photo: 'https://images.unsplash.com/photo-1660911295696-9810
+            c266d9f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+        bio: 'Bacon ipsum dolor amet pork loin chislic porchetta, biltong bresaola jerky bacon tail swine pancetta
+            ham prosciutto beef. Frankfurter burgdoggen corned beef buffalo
+            landjaeger meatloaf chuck kevin sausage shankle meatball. Tongue frankfurter capicola hamburger. Picanha'
+      )
+    end
     before(:example) { get user_path(user.id) }
 
     it 'should have success code of ok' do
       expect(response).to have_http_status(:ok)
-      expect(response.body).to include( 'Pascal')
+      expect(response.body).to include('Pascal')
     end
 
     it "It should render the 'show' template" do
