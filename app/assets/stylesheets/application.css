@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 65%;
+}
+
+.user_container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin: 2rem 10rem;
+}
+
+.user_img {
+    height: 10rem;
+}
+
+.user_img img {
+    height: 100%;
+}
+
+.user_content {
+    background-color: silver;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user_content h2 {
+    font-size: 1.2rem;
+}
+
+.user_content p {
+    align-self: flex-end;
+    padding-bottom: 1rem;
+    font-weight: bolder;
+    font-size: .9rem;
+}
