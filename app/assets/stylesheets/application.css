@@ -21,12 +21,14 @@
 
 body {
     font-size: 65%;
+    margin: 2rem 10rem;
 }
 
 .user_container {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    margin: 2rem 10rem;
+    margin: 2rem 0;
+    list-style: none;
 }
 
 .user_img {
@@ -38,7 +40,6 @@ body {
 }
 
 .user_content {
-    background-color: silver;
     padding: 0 1rem;
     display: flex;
     justify-content: space-between;
@@ -53,4 +54,63 @@ body {
     padding-bottom: 1rem;
     font-weight: bolder;
     font-size: .9rem;
+}
+
+/* Css for single user */
+
+.single_user {
+    background-color: silver;
+}
+
+.user_bio h2 {
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.user_bio p {
+    font-size: 1.3rem;
+    font-weight: lighter;
+}
+
+.post_list {
+    list-style: none;
+    margin-bottom: 1rem;
+
+}
+
+.post_list h2 {
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.post_title {
+    font-size: 1.5rem;
+}
+
+.post_list p {
+    font-size: 1.3rem;
+    font-weight: lighter;
+}
+
+.post_summary {
+    display: flex;
+    justify-content: flex-end;
+    padding: .5rem 0;
+
+}
+
+.post_summary p:first-child {
+    margin-right: .5rem;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+button {
+    padding: .5rem 1rem;
+    width: 15%;
+    align-self: center;
 }
