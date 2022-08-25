@@ -1,34 +1,32 @@
-   <div>
-            <div><img src=<%= @user.photo %> alt="profile pic">
-        
-            </div>
-            <div>
-            <h2><%= @user.name%></h1>
-                <p>Number of posts: <%= @user.posts_count %></p>
-                <p>Bio: <%= @user.bio %></p>
 
-            </div>
-        </div>
+            <div class="user_container">
+                <div class="user_img">
+                <img src=<%= @user.photo %> alt="profile pic">
+                </div>
+                <div class="user_content">
+                    <h2><%= @user.name%></h1>
+                    <p>Number of posts: <%= @user.posts_count %></p>
+                </div>
+            </div> 
+            
 
 <ul>
-    <% @posts.each do |pst| %>
-        <li>
-        <div>
-        <h2><% pst.title %></h2>
-         <p>Post: <%= pst.text %></p>
-         <p>Post: <%= pst.inspect %></p>
-         <div>
-        <p>Comments: <%= pst.comments_count.nil? ? 0 : pst.comments_count %></p>
-        <p>Likes: <%= pst.likes_count.nil? ? 0 : pst.likes_count %></p>
-      </div>
-
-    <div>
-      <% pst.recent_comments_on_post.each do |comment| %>
-        <p><%= User.find(comment.author_id).name %>: <%= comment.text %></p>
-      <% end %>
-    </div>
-
-        </div>
-        </li>
-    <% end %>
+   <% @user.recent_three_posts.each do |post|  %>
+           <li  class="post_list">
+                <h2>Post #<%= post.id%></h1>
+                <div class="post_title">
+                    <h2><%= post.title %></h2>
+                    <p><%= post.text %></p>
+                     <div class="post_summary">
+                        <p>Comments: <%= post.comments_count.nil? ? 0 : post.comments_count %>  </p>
+                        <p>Likes: <%= post.likes_count.nil? ? 0 : post.likes_count %></p>
+                    </div>
+                </div>
+                <div class="commentt_list">
+                  <% post.recent_comments_on_post.each do |comment| %>
+                    <p><%= User.find(comment.author_id).name %>: <%= comment.text %></p>
+                  <% end %>
+                </div>
+            </li>
+            <% end %>
 </ul>

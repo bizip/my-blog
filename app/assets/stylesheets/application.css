@@ -114,3 +114,37 @@ button {
     width: 15%;
     align-self: center;
 }
+
+.commentt_list {
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+/* Css for a single post */
+
+.post_header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    padding: .5rem 0;
+}
+
+.post_header .right {
+    display: flex;
+}
+
+.post_header .right p {
+    margin-right: .2rem;
+}
+
+.post_content {
+    font-size: 1.3rem;
+    font-weight: lighter;
+    padding: 1rem 0;
+}
+
+.post_comments {
+    list-style: none;
+    padding: .5rem 0;
+    font-size: 1rem;
+}
