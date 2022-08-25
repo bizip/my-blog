@@ -14,137 +14,135 @@
  *= require_self
  */
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 65%;
-    margin: 2rem 10rem;
+  font-size: 65%;
+  margin: 2rem 10rem;
 }
 
 .user_container {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    margin: 2rem 0;
-    list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin: 2rem 0;
+  list-style: none;
 }
 
 .user_img {
-    height: 10rem;
+  height: 10rem;
 }
 
 .user_img img {
-    height: 100%;
+  height: 100%;
 }
 
 .user_content {
-    padding: 0 1rem;
-    display: flex;
-    justify-content: space-between;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .user_content h2 {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .user_content p {
-    align-self: flex-end;
-    padding-bottom: 1rem;
-    font-weight: bolder;
-    font-size: .9rem;
+  align-self: flex-end;
+  padding-bottom: 1rem;
+  font-weight: bolder;
+  font-size: 0.9rem;
 }
 
 /* Css for single user */
 
 .single_user {
-    background-color: silver;
+  background-color: silver;
 }
 
 .user_bio h2 {
-    font-size: 1.5rem;
-    padding-bottom: 1rem;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 .user_bio p {
-    font-size: 1.3rem;
-    font-weight: lighter;
+  font-size: 1.3rem;
+  font-weight: lighter;
 }
 
 .post_list {
-    list-style: none;
-    margin-bottom: 1rem;
-
+  list-style: none;
+  margin-bottom: 1rem;
 }
 
 .post_list h2 {
-    padding-bottom: 1rem;
-    font-size: 1.5rem;
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
 .post_title {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .post_list p {
-    font-size: 1.3rem;
-    font-weight: lighter;
+  font-size: 1.3rem;
+  font-weight: lighter;
 }
 
 .post_summary {
-    display: flex;
-    justify-content: flex-end;
-    padding: .5rem 0;
-
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 0;
 }
 
 .post_summary p:first-child {
-    margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 button {
-    padding: .5rem 1rem;
-    width: 15%;
-    align-self: center;
+  padding: 0.5rem 1rem;
+  width: 15%;
+  align-self: center;
 }
 
 .commentt_list {
-    border: 1px solid black;
-    padding: 1rem;
+  border: 1px solid black;
+  padding: 1rem;
 }
 
 /* Css for a single post */
 
 .post_header {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.2rem;
-    padding: .5rem 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
 }
 
 .post_header .right {
-    display: flex;
+  display: flex;
 }
 
 .post_header .right p {
-    margin-right: .2rem;
+  margin-right: 0.2rem;
 }
 
 .post_content {
-    font-size: 1.3rem;
-    font-weight: lighter;
-    padding: 1rem 0;
+  font-size: 1.3rem;
+  font-weight: lighter;
+  padding: 1rem 0;
 }
 
 .post_comments {
-    list-style: none;
-    padding: .5rem 0;
-    font-size: 1rem;
+  list-style: none;
+  padding: 0.5rem 0;
+  font-size: 1rem;
 }
