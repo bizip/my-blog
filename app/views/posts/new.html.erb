@@ -1,6 +1,6 @@
 
 
-<%= form_with model: @post, url: user_posts_path, method: :post do |form| %>
+<%= form_with model: @comment, url:new_user_post_comment , method: :post do |form| %>
 <h3>Create new Post</h3>
   <div class="mb-3">
     <%= form.text_field :title, class: 'form-control', placeholder: 'Title' %>
