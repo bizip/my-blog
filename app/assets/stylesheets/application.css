@@ -146,3 +146,24 @@ button {
   padding: 0.5rem 0;
   font-size: 1rem;
 }
+
+form {
+  width: 60vw;
+  max-width: 500px;
+  min-width: 300px;
+  margin: 0 auto;
+  padding-bottom: 2em;
+}
+
+form h3 {
+  font-size: 1.5rem;
+}
+
+input,
+textarea,
+select {
+  margin: 10px 0 0 0;
+  width: 100%;
+  min-height: 2em;
+  padding: .5rem;
+}
