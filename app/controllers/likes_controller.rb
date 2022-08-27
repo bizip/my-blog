@@ -1,13 +1,34 @@
 class LikesController < ApplicationController
-  def create
-    post = Post.find(params[:post_id])
-    author = CurrentUser.user
-    liked = Like.where(:author, :post)
-    return if liked.present?
-
-    like = Like.create(author, :post)
-    return unless like.save
-
-    redirect_to user_post_path(post.author, post)
+    def create
+      @user = CurrentUser.user
+      @post = Post.includes(:author).find(params[:post_id])
+  
+      @already_liked = Like.where(author: @user, post: @post)
+      destroy && return if @already_liked.present?
+  
+      @like = Like.create(likes_params_to_like)
+      @like.author = @user
+      @like.post = @post
+  
+      flash[:notice] = if @like.save
+                         'Successfully liked.'
+                       else
+                         'Try again'
+                       end
+      redirect_back_or_to user_post_path(@post.author, @post)
+    end
+  
+    def destroy
+      @like = CurrentUser.user.likes.last
+      @like.destroy
+      @post = @like.post
+      flash[:notice] = 'Post unliked.'
+      redirect_back_or_to user_post_path(@post.author, @post)
+    end
+  
+    private
+  
+    def likes_params_to_like
+      params.permit(:author_id, :id)
+    end
   end
-end

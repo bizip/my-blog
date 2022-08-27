@@ -8,6 +8,7 @@
     </div>
     <div class="post_content">
     <%= @post.text%>
+    <%= button_to 'Like', user_post_likes_path(@post.author, @post), method: :post, class: 'like_btn'%>
     </div>
    <ul>
     <%= render partial: "posts/comment_form"%>
@@ -15,6 +16,5 @@
         <li class="post_comments"><p><%= comment.author.name %>: <%= comment.text %></p></li>
     <% end %>
      </ul>
-         <%= link_to 'Add a new comment' %>
     </div>
 </div>

@@ -167,3 +167,11 @@ select {
   min-height: 2em;
   padding: 0.5rem;
 }
+
+a {
+  text-decoration: none;
+}
+
+.like_btn {
+  align-self: flex-start;
+}
