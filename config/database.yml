@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: my_blog_development
+  database: my_blog_development_test
   username: pascal
   password: 123456789
 

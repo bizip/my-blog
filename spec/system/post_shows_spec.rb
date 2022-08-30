@@ -18,22 +18,12 @@ RSpec.describe 'PostShows Spec', type: :system do
     expect(page).to have_content(@post.title)
   end
 
-  it 'It should shows the author of tthe post' do
+  it 'It should shows the author of the post' do
     visit user_post_path(@user1, @post)
     expect(page).to have_content(@user1.name)
   end
 
-#   it 'shows the number of comments' do
-#     visit user_post_path(@user, @post)
-#     expect(page).to have_content("Comments: #{@post.comments_counter}")
-#   end
-
-#   it 'shows the number of likes' do
-#     visit user_post_path(@user, @post)
-#     expect(page).to have_content("Likes: #{@post.likes_counter}")
-#   end
-
-  it 'It should shows tthe body of the post' do
+  it 'It should shows the body of the post' do
     visit user_post_path(@user1, @post)
     expect(page).to have_content(@post.text)
   end
@@ -44,7 +34,7 @@ RSpec.describe 'PostShows Spec', type: :system do
     expect(page).to have_content(comment.author.name)
   end
 
-  it 'shows the comment each comment author left' do
+  it 'It shows the comment each comment author left' do
     visit user_post_path(@user1, @post)
     comment = @post.comments.first
     comment2 = @post.comments.last
