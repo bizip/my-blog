@@ -4,7 +4,8 @@ RSpec.describe 'PostShows Spec', type: :system do
   before do
     driven_by(:rack_test)
     @user1 = User.create(name: 'Pascal', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
-    @user2 = User.create(name: 'Bizimungu', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+    @user2 = User.create(name: 'Bizimungu', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                         bio: 'Teacher from Mexico.')
     @post = Post.create(title: 'Hello', text: 'This is my first post', author: @user1)
 
     Comment.create(author: @user1, post: @post, text: 'First comment from my mind')

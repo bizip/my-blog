@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "All users Index Page", type: :system do
+RSpec.describe 'All users Index Page', type: :system do
   before do
     driven_by(:rack_test)
     @user = User.create(name: 'Darwin', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
