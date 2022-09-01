@@ -13,6 +13,14 @@ class Ability
     can :destroy, Article do |article|
       article.user == user
     end
+
+    return unless user.present?
+    can :update, Comment do |comment|
+      comment.author == user
+    end
+    can :destroy, Comment do |comment|
+      comment.author == user
+    end
     can :create, Article
     can :create, Comment
     can :read, :all
