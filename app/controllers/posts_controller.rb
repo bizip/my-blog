@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   # load_and_authorize_resource
   def index
-    @user = User.find(params[:user_id])
+    @user = current_user
+    puts "++++++++++++++++++++++++++++++++++++++++++"
+    # @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments)
   end
 
@@ -14,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @user = CurrentUser.user
+    @user = current_user
     @post = Post.create(post_params_from_input)
     @post.author = @user
     if @post.save
