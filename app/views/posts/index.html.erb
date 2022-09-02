@@ -11,6 +11,11 @@
             
 
 <ul>
+
+  <% if @user == current_user %>
+    <%= link_to 'Add a new post', new_user_post_path %>
+  <% end %>
+
    <% @user.recent_three_posts.each do |post|  %>
            <li  class="post_list">
                 <h2><%= link_to "Add new Post", new_user_post_path(post.author, post) %></h2>
