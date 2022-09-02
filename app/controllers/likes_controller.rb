@@ -19,7 +19,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like = curre@user = current_user.likes.last
+    @like = current_user.likes.last
     @like.destroy
     @post = @like.post
     flash[:notice] = 'Post unliked.'
