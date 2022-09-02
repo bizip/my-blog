@@ -6,6 +6,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @user = current_user
+    @post = @user.posts.new
   end
 
   def show
@@ -13,14 +15,18 @@ class PostsController < ApplicationController
   end
 
   def create
-    @user = current_user
+    @user = CurrentUser.user
     @post = Post.create(post_params_from_input)
     @post.author = @user
+    @user = current_user
+    @post = @user.posts.create(post_params_from_input)
     if @post.save
-      flash[:notice] = 'New post created'
+      flash[:notice] = 'New post created successfully.'
       redirect_to user_post_path(@user, @post)
     else
       render :new, status: :unprocessable_entity
+      flash.now[:alert] = 'Post creation failed'
+      render action: 'new'
     end
   end
 
