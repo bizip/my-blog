@@ -11,12 +11,18 @@
             
 
 <ul>
+
+  <% if @user == current_user %>
+    <%= link_to 'Add a new post', new_user_post_path %>
+  <% end %>
+
    <% @user.recent_three_posts.each do |post|  %>
            <li  class="post_list">
-                <h2><%= link_to "Add new Post", new_user_post_path(post.author, post) %></h2>
                 <h2>Post #<%= post.id%></h1>
                 <div class="post_title">
                    <h2><%= link_to post.title, user_post_path(post.author, post) %></h2>
+                   <button type="button" class="btn btn-warning">Edit</button>
+                  <button type="button" class="btn btn-danger">Delete</button>
                     <p><%= post.text %></p>
                      <div class="post_summary">
                         <p>Comments: <%= post.comments_count.nil? ? 0 : post.comments_count %>  </p>

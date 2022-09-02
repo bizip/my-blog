@@ -6,6 +6,9 @@
     <p>Likes: <%= @post.likes_count.nil? ? 0 : @post.likes_count %></p>
     </div>
     </div>
+      <% if can? :destroy, @post %>
+    <%= button_to 'Delete post', user_post_path(@post.author, @post), method: :delete %>
+  <% end %>
     <div class="post_content">
     <%= @post.text%>
     <%= button_to 'Like', user_post_likes_path(@post.author, @post), method: :post, class: 'like_btn'%>
