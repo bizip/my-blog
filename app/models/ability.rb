@@ -7,25 +7,13 @@ class Ability
     # Define abilities for the user here. For example:
     #
     return unless user.present?
-    can :update, Article do |article|
-      article.user == user
-    end
-    can :destroy, Article do |article|
-      article.user == user
-    end
-
-    return unless user.present?
-    can :update, Comment do |comment|
-      comment.author == user
-    end
-    can :destroy, Comment do |comment|
-      comment.author == user
-    end
-    can :create, Article
-    can :create, Comment
     can :read, :all
-      return unless user.admin?
-      can :manage, :all
+    can :manage, Comment, author: user
+    can :manage, Post, author: user
+    # return unless user.Admin?
+
+    # can :manage, :all
+    #
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
