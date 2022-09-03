@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   end
   end
 
-  get 'users/:user_id/posts/:post_id/comments_list', to: 'api#list_comments', as: :list_comments
-  get 'users/:user_id/posts_list', to: 'api#list_posts', as: :list_posts
-  post 'users/:user_id/posts/:post_id/comment_create', to: 'api#create_comment', as: :create_comment
+  get 'users/:user_id/posts_list', to: 'api#list_all_user_posts', as: :list_all_user_posts
+  get 'users/:user_id/posts/:post_id/comments_list', to: 'api#list_all_post_comments', as: :list_all_post_comments
+  post 'users/:user_id/posts/:post_id/add_comment', to: 'api#add_comment', as: :add_comment
 
 end

@@ -20,6 +20,8 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
+  config.debug_exception_response_format = :default
+
   
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.

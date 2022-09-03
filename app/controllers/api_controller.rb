@@ -2,19 +2,26 @@ class ApiController < ApplicationController
     protect_from_forgery with: :null_session
     skip_before_action :authenticate_user!
   
-    include Response
-  
-    def list_all_posts
+    def list_all_user_posts
       authentication_token = params[:authentication_token]
-      return unless check_token_user_params(authentication_token)
+      return unless check_user_token(authentication_token)
   
       posts = Post.where(author_id: params[:user_id])
-      json_response(posts)
+      render json: posts, status: ok
     end
   
-    def create_new_comment
+    def list_all_post_comments
       authentication_token = params[:authentication_token]
-      return unless check_token_user_params(authentication_token)
+      return unless check_user_token(authentication_token) && check_post_params
+  
+      comments = Comment.where(post_id: params[:post_id], author_id: params[:user_id])
+  
+      render json: comments, status: ok
+    end
+  
+    def add_comment
+      authentication_token = params[:authentication_token]
+      return unless check_user_token(authentication_token)
   
       post_id = params[:post_id]
       text = params[:text]
@@ -22,44 +29,41 @@ class ApiController < ApplicationController
   
       comment = Comment.new(text:, author: @current_user, post_id:)
       if comment.save
-        json_response(comment, 200)
+        render json: comment, status: ok
       else
-        json_response({ error: 'Comment creation failed, please try again later.' }, 500)
+        render json: { error: 'Comment was not created.' }, status: 500
       end
-    end
-  
-    def list_all_comments
-      authentication_token = params[:authentication_token]
-      return unless check_token_user_params(authentication_token)
-  
-      return unless check_post_params
-  
-      comments = Comment.where(post_id: params[:post_id], author_id: params[:user_id])
-      json_response(comments)
     end
   
     private
   
     def check_comment_params(text)
-      return false unless check_post_params
-  
-      if text.nil? || text.empty?
-        json_response({ error: 'We have no comment yet!' }, 400)
+      if !check_post_params || text.nil? || text.empty?
+        render json: { error: 'Comment can\'t be created.' }, status: 400
         false
       else
         true
       end
     end
   
-    def check_token_user_params(authentication_token)
+    def check_post_params
+      if Post.where(id: params[:post_id], author_id: params[:user_id]).exists?
+        true
+      else
+        render json: { error: 'Post does not exist.' }, status: 404
+        false
+      end
+    end
+  
+    def check_user_token(authentication_token)
       if authentication_token.nil?
-        json_response({ error: 'Invalid token.' }, 400)
+        render json: { error: 'Invalid token.' }, status: 400
         false
       elsif !authenticate(authentication_token)
-        json_response({ error: 'Not authorized.' }, 401)
+        render json: { error: 'Not authorized.' }, status: 401
         false
       elsif !User.exists?(params[:user_id])
-        json_response({ error: 'User does not exist.' }, 404)
+        render json: { error: 'User does not exist' }, status: 404
         false
       else
         true
@@ -73,14 +77,5 @@ class ApiController < ApplicationController
   
       @current_user = user
       true
-    end
-  
-    def check_post_params
-      if Post.where(id: params[:post_id], author_id: params[:user_id]).exists?
-        true
-      else
-        json_response({ error: 'Post does not exist.' }, 404)
-        false
-      end
     end
   end
